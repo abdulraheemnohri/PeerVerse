@@ -1,0 +1,19 @@
+{
+  "name": "peerverse",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Fully Decentralized Multi-Peer AV Chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "p2p",
+    "webrtc",
+    "decentralized",
+    "chat",
+    "video"
+  ],
+  "author": "",
+  "license": "MIT"
+}
