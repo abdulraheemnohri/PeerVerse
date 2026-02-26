@@ -78,6 +78,12 @@ class PeerVerseApp {
                 this.handleGovernanceAction(data.payload);
             }
         };
+
+        this.transport.onStream = (peerID, stream) => {
+            this.videoHandler.renderToGrid(peerID, stream, document.getElementById('video-grid'));
+        };
+
+        this.crdt.onUpdate = () => this.updateUIFromCRDT();
     }
 
     handleGovernanceAction(action) {
@@ -89,12 +95,6 @@ class PeerVerseApp {
             console.log("You have been muted by a moderator.");
             // Logic to mute local mic
         }
-
-        this.transport.onStream = (peerID, stream) => {
-            this.videoHandler.renderToGrid(peerID, stream, document.getElementById('video-grid'));
-        };
-
-        this.crdt.onUpdate = () => this.updateUIFromCRDT();
     }
 
     updateUIFromCRDT() {
@@ -102,6 +102,12 @@ class PeerVerseApp {
         Object.entries(this.crdt.state.participants).forEach(([id, profile]) => {
             this.participantPanel.addParticipant(id, profile);
         });
+
+        // Update shared notes if in office mode
+        const notesArea = document.getElementById('shared-notes');
+        if (notesArea && document.activeElement !== notesArea) {
+            notesArea.value = this.crdt.state.notes;
+        }
     }
 
     applyAppMode(mode) {
@@ -187,6 +193,13 @@ class PeerVerseApp {
                 document.body.removeChild(modalContainer);
             });
         });
+
+        const notesArea = document.getElementById('shared-notes');
+        if (notesArea) {
+            notesArea.addEventListener('input', (e) => {
+                this.crdt.updateNotes(e.target.value);
+            });
+        }
     }
 
     async startMedia() {
