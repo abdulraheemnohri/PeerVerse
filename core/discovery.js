@@ -13,6 +13,7 @@ export class Discovery {
     }
 
     async startDiscovery(roomID, signalingUrl = 'wss://signaling.peerverse.io') {
+        this.currentRoom = roomID;
         console.log(`Connecting to signaling server for room: ${roomID}`);
         // In a real implementation:
         // this.socket = new WebSocket(`${signalingUrl}/${roomID}`);
@@ -48,5 +49,17 @@ export class Discovery {
 
     handleIncomingSignal(from, signal) {
         if (this.onSignal) this.onSignal(from, signal);
+    }
+
+    createBreakoutRoom(name) {
+        const breakoutID = `${this.currentRoom}-breakout-${name}`;
+        console.log(`Creating breakout room: ${breakoutID}`);
+        return breakoutID;
+    }
+
+    moveToRoom(newRoomID) {
+        console.log(`Moving from ${this.currentRoom} to ${newRoomID}`);
+        this.peers.clear();
+        this.startDiscovery(newRoomID);
     }
 }

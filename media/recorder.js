@@ -21,6 +21,11 @@ export class Recorder {
         return new Promise((resolve) => {
             this.mediaRecorder.onstop = () => {
                 const blob = new Blob(this.chunks, { type: 'video/webm' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `PeerVerse-Recording-${Date.now()}.webm`;
+                a.click();
                 resolve(blob);
             };
             this.mediaRecorder.stop();

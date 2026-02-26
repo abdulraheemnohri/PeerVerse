@@ -13,6 +13,7 @@ import { ChatPanel } from './chatPanel.js';
 import { ParticipantPanel } from './participantPanel.js';
 import { CRDT } from '../data/crdt.js';
 import { SpeechToText } from '../ai/speechToText.js';
+import { Governance, ROLES } from '../core/governance.js';
 
 class PeerVerseApp {
     constructor() {
@@ -26,6 +27,7 @@ class PeerVerseApp {
         this.chatPanel = null;
         this.participantPanel = null;
         this.crdt = null;
+        this.governance = null;
         this.stt = new SpeechToText();
         this.isSTTActive = false;
         this.roomID = 'main-room';
@@ -39,8 +41,14 @@ class PeerVerseApp {
         this.transport = new Transport(this.identity, this.discovery);
         this.profileUI = new ProfileUI(this.identity);
 
+        this.settingsUI.onModeChange = (mode) => this.applyAppMode(mode);
+
         this.chat = new Chat(this.transport);
         this.crdt = new CRDT(this.roomID, this.transport);
+        this.governance = new Governance(this.transport);
+
+        // Default role
+        this.governance.setRole(this.identity.id, ROLES.ADMIN);
 
         this.chatPanel = new ChatPanel(this.chat, document.getElementById('chat-panel'));
         this.participantPanel = new ParticipantPanel(document.getElementById('participant-panel'));
@@ -66,8 +74,21 @@ class PeerVerseApp {
             } else if (data.type === 'CRDT_SYNC') {
                 this.crdt.applyRemoteChange(data.payload);
                 this.updateUIFromCRDT();
+            } else if (data.type === 'GOVERNANCE_ACTION') {
+                this.handleGovernanceAction(data.payload);
             }
         };
+    }
+
+    handleGovernanceAction(action) {
+        console.log("Governance action received:", action);
+        if (action.type === 'KICK' && action.target === this.identity.id) {
+            alert("You have been kicked from the room.");
+            window.location.reload();
+        } else if (action.type === 'MUTE' && action.target === this.identity.id) {
+            console.log("You have been muted by a moderator.");
+            // Logic to mute local mic
+        }
 
         this.transport.onStream = (peerID, stream) => {
             this.videoHandler.renderToGrid(peerID, stream, document.getElementById('video-grid'));
@@ -81,6 +102,29 @@ class PeerVerseApp {
         Object.entries(this.crdt.state.participants).forEach(([id, profile]) => {
             this.participantPanel.addParticipant(id, profile);
         });
+    }
+
+    applyAppMode(mode) {
+        console.log(`Applying app mode: ${mode}`);
+        const header = document.querySelector('header h1');
+        const notesPanel = document.getElementById('notes-panel');
+
+        switch(mode) {
+            case 'office':
+                header.textContent = 'PeerVerse Office';
+                document.body.classList.add('mode-office');
+                notesPanel.style.display = 'flex';
+                break;
+            case 'education':
+                header.textContent = 'PeerVerse Classroom';
+                document.body.classList.add('mode-education');
+                notesPanel.style.display = 'none';
+                break;
+            default:
+                header.textContent = 'PeerVerse';
+                document.body.classList.remove('mode-office', 'mode-education');
+                notesPanel.style.display = 'none';
+        }
     }
 
     setupEventListeners() {

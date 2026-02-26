@@ -10,7 +10,10 @@ export class CRDT {
         this.state = {
             participants: {}, // id -> profile
             chat: [],
-            whiteboard: []
+            whiteboard: [],
+            notes: "",
+            polls: [],
+            handRaised: new Set()
         };
         this.onUpdate = null;
     }
@@ -40,8 +43,35 @@ export class CRDT {
             case 'CHAT_ADD':
                 this.state.chat.push(change.message);
                 break;
+            case 'NOTES_UPDATE':
+                this.state.notes = change.notes;
+                break;
+            case 'POLL_ADD':
+                this.state.polls.push(change.poll);
+                break;
+            case 'HAND_RAISE':
+                if (change.raised) this.state.handRaised.add(change.id);
+                else this.state.handRaised.delete(change.id);
+                break;
         }
         if (this.onUpdate) this.onUpdate(this.state);
+    }
+
+    updateNotes(notes) {
+        this.state.notes = notes;
+        this.broadcastStateChange({ type: 'NOTES_UPDATE', notes });
+    }
+
+    createPoll(question, options) {
+        const poll = { id: Math.random(), question, options, results: options.map(() => 0) };
+        this.state.polls.push(poll);
+        this.broadcastStateChange({ type: 'POLL_ADD', poll });
+    }
+
+    toggleHand(id, raised) {
+        if (raised) this.state.handRaised.add(id);
+        else this.state.handRaised.delete(id);
+        this.broadcastStateChange({ type: 'HAND_RAISE', id, raised });
     }
 
     broadcastStateChange(change) {
