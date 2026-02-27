@@ -13,6 +13,12 @@ export class VideoHandler {
         return this.stream;
     }
 
+    toggleVideo(enabled) {
+        if (this.stream) {
+            this.stream.getVideoTracks().forEach(track => track.enabled = enabled);
+        }
+    }
+
     async applyVirtualBackground(image) {
         console.log(`Applying virtual background with: ${image}`);
     }

@@ -9,25 +9,37 @@ export class Discovery {
         this.peers = new Set();
         this.onPeerFound = null;
         this.onSignal = null;
-        this.socket = null; // Placeholder for signaling socket
+        this.socket = null;
+        this.isSimulated = true;
     }
 
     async startDiscovery(roomID, signalingUrl = 'wss://signaling.peerverse.io') {
         this.currentRoom = roomID;
-        console.log(`Connecting to signaling server for room: ${roomID}`);
-        // In a real implementation:
-        // this.socket = new WebSocket(`${signalingUrl}/${roomID}`);
-        // this.socket.onmessage = (msg) => this.handleSignaling(JSON.parse(msg.data));
+        console.log(`[Discovery] Initializing room: ${roomID}`);
 
-        // Simulating finding a peer for demonstration
-        setTimeout(() => {
-            this.handlePeerDiscovery('simulated-peer-id');
-        }, 2000);
+        if (this.isSimulated) {
+            this.simulateNetwork();
+        } else {
+            // this.socket = new WebSocket(`${signalingUrl}/${roomID}`);
+            // this.socket.onmessage = (msg) => this.handleSignaling(JSON.parse(msg.data));
+        }
+    }
+
+    simulateNetwork() {
+        console.log("[Discovery] Simulation mode active. Waiting for peers...");
+        // In simulation mode, we mock the arrival of other users
+        const demoPeers = ['Alpha-Peer', 'Beta-Peer'];
+
+        demoPeers.forEach((peer, index) => {
+            setTimeout(() => {
+                this.handlePeerDiscovery(peer);
+            }, 3000 * (index + 1));
+        });
     }
 
     announce(roomID) {
-        console.log(`Announcing presence in room: ${roomID} as ${this.identity.id}`);
-        if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+        console.log(`[Discovery] Announcing ${this.identity.id} to ${roomID}`);
+        if (this.socket && this.socket.readyState === 1) {
             this.socket.send(JSON.stringify({ type: 'ANNOUNCE', peerID: this.identity.id }));
         }
     }
@@ -35,15 +47,18 @@ export class Discovery {
     handlePeerDiscovery(peerID) {
         if (peerID !== this.identity.id && !this.peers.has(peerID)) {
             this.peers.add(peerID);
-            console.log(`New peer discovered: ${peerID}`);
+            console.log(`[Discovery] Peer found: ${peerID}`);
             if (this.onPeerFound) this.onPeerFound(peerID);
         }
     }
 
     sendSignal(peerID, signal) {
-        console.log(`Sending signal to ${peerID}`);
-        if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+        console.log(`[Discovery] Signaling relay to ${peerID}`);
+        if (this.socket && this.socket.readyState === 1) {
             this.socket.send(JSON.stringify({ type: 'SIGNAL', to: peerID, from: this.identity.id, signal }));
+        } else if (this.isSimulated) {
+            // Echo back for demo loopback testing if needed
+            // this.handleIncomingSignal(peerID, signal);
         }
     }
 
@@ -51,14 +66,8 @@ export class Discovery {
         if (this.onSignal) this.onSignal(from, signal);
     }
 
-    createBreakoutRoom(name) {
-        const breakoutID = `${this.currentRoom}-breakout-${name}`;
-        console.log(`Creating breakout room: ${breakoutID}`);
-        return breakoutID;
-    }
-
     moveToRoom(newRoomID) {
-        console.log(`Moving from ${this.currentRoom} to ${newRoomID}`);
+        console.log(`[Discovery] Transitioning to room: ${newRoomID}`);
         this.peers.clear();
         this.startDiscovery(newRoomID);
     }

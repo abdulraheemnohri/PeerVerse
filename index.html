@@ -32,8 +32,17 @@
             </aside>
         </main>
 
+        <div id="reaction-panel" style="display:none; position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); background: var(--card-bg); backdrop-filter: blur(12px); border-radius: 20px; padding: 0.5rem 1rem; border: 1px solid var(--glass-border); gap: 1rem; font-size: 1.5rem; cursor: pointer; z-index: 100;">
+            <span class="emoji">👏</span>
+            <span class="emoji">🔥</span>
+            <span class="emoji">❤️</span>
+            <span class="emoji">👍</span>
+            <span class="emoji">🎉</span>
+        </div>
+
         <footer>
             <div id="controls">
+                <button id="show-reactions">Reactions</button>
                 <button id="toggle-mic">Mute Mic</button>
                 <button id="toggle-video">Stop Video</button>
                 <button id="share-screen">Share Screen</button>

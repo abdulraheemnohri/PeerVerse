@@ -6,13 +6,20 @@ import { Identity } from '../core/identity.js';
 import { Discovery } from '../core/discovery.js';
 import { Transport } from '../core/transport.js';
 import { VideoHandler } from '../media/video.js';
+import { SpatialAudio } from '../media/spatialAudio.js';
 import { ProfileUI } from './profile/profile.js';
 import { SettingsUI } from './settings.js';
 import { Chat } from '../data/chat.js';
 import { ChatPanel } from './chatPanel.js';
 import { ParticipantPanel } from './participantPanel.js';
+import { PluginPanel } from './pluginPanel.js';
+import { CodeEditor } from './codeEditor.js';
+import { Whiteboard } from '../data/whiteboard.js';
+import { NetworkOverlay } from './networkOverlay.js';
 import { CRDT } from '../data/crdt.js';
+import { Files } from '../data/files.js';
 import { SpeechToText } from '../ai/speechToText.js';
+import { OnlineAI } from '../ai/onlineAI.js';
 import { Governance, ROLES } from '../core/governance.js';
 
 class PeerVerseApp {
@@ -21,14 +28,21 @@ class PeerVerseApp {
         this.discovery = null;
         this.transport = null;
         this.videoHandler = new VideoHandler();
+        this.spatialAudio = new SpatialAudio();
         this.profileUI = null;
         this.settingsUI = new SettingsUI();
         this.chat = null;
         this.chatPanel = null;
         this.participantPanel = null;
+        this.pluginPanel = null;
+        this.codeEditor = null;
+        this.whiteboard = null;
+        this.networkOverlay = null;
         this.crdt = null;
+        this.files = null;
         this.governance = null;
         this.stt = new SpeechToText();
+        this.onlineAI = new OnlineAI('sk-placeholder');
         this.isSTTActive = false;
         this.roomID = 'main-room';
     }
@@ -45,6 +59,7 @@ class PeerVerseApp {
 
         this.chat = new Chat(this.transport);
         this.crdt = new CRDT(this.roomID, this.transport);
+        this.files = new Files(this.transport);
         this.governance = new Governance(this.transport);
 
         // Default role
@@ -52,6 +67,18 @@ class PeerVerseApp {
 
         this.chatPanel = new ChatPanel(this.chat, document.getElementById('chat-panel'));
         this.participantPanel = new ParticipantPanel(document.getElementById('participant-panel'));
+        this.pluginPanel = new PluginPanel(document.body);
+        this.codeEditor = new CodeEditor(this.crdt);
+        this.whiteboard = new Whiteboard(this.transport);
+        this.networkOverlay = new NetworkOverlay(document.body);
+
+        this.pluginPanel.onPluginLoad = (name, el) => {
+            if (name === 'whiteboard') {
+                this.whiteboard.initialize(el);
+            } else if (name === 'code') {
+                this.codeEditor.initialize(el.parentElement.parentElement); // Adjusted for viewport
+            }
+        };
 
         this.setupP2PHooks();
         this.setupEventListeners();
@@ -74,16 +101,54 @@ class PeerVerseApp {
             } else if (data.type === 'CRDT_SYNC') {
                 this.crdt.applyRemoteChange(data.payload);
                 this.updateUIFromCRDT();
+            } else if (data.type === 'CODE_UPDATE') {
+                this.codeEditor.updateCode(data.code);
+            } else if (data.type === 'REACTION') {
+                this.showReactionOnUI(data.emoji, peerID);
             } else if (data.type === 'GOVERNANCE_ACTION') {
                 this.handleGovernanceAction(data.payload);
+            } else if (data.type.startsWith('FILE_')) {
+                this.files.handleIncomingFile(peerID, data);
+            } else if (data.type === 'WHITEBOARD_DRAW') {
+                this.whiteboard.receiveDraw(data.payload);
             }
+        };
+
+        this.transport.onBinaryData = (peerID, chunk) => {
+            this.files.receiveChunk(peerID, chunk);
         };
 
         this.transport.onStream = (peerID, stream) => {
             this.videoHandler.renderToGrid(peerID, stream, document.getElementById('video-grid'));
+            this.spatialAudio.addPeer(peerID, stream);
+        };
+
+        this.transport.onStats = (statsMap) => {
+            // Update overlay with average or primary peer stats
+            const stats = Object.values(statsMap)[0];
+            if (stats) {
+                this.networkOverlay.updateStats({
+                    packetLoss: stats.packetsLost || 0,
+                    jitter: stats.jitter || 0
+                });
+            }
         };
 
         this.crdt.onUpdate = () => this.updateUIFromCRDT();
+    }
+
+    showReactionOnUI(emoji, peerID) {
+        console.log(`Reaction from ${peerID}: ${emoji}`);
+        const floating = document.createElement('div');
+        floating.textContent = emoji;
+        floating.style.position = 'absolute';
+        floating.style.left = '50%';
+        floating.style.bottom = '150px';
+        floating.style.fontSize = '3rem';
+        floating.style.animation = 'fadeInUp 1s forwards';
+        floating.style.zIndex = '1000';
+        document.body.appendChild(floating);
+        setTimeout(() => floating.remove(), 1000);
     }
 
     handleGovernanceAction(action) {
@@ -157,12 +222,43 @@ class PeerVerseApp {
             this.discovery.announce(this.roomID);
         });
 
-        document.getElementById('toggle-mic').addEventListener('click', () => {
-            console.log('Toggle mic');
+        document.getElementById('open-whiteboard').addEventListener('click', () => {
+            this.pluginPanel.show();
+            this.pluginPanel.activatePlugin('whiteboard');
         });
 
-        document.getElementById('toggle-video').addEventListener('click', () => {
-            console.log('Toggle video');
+        document.getElementById('toggle-mic').addEventListener('click', (e) => {
+            const btn = e.target;
+            const isMuted = btn.textContent === 'Mute Mic';
+            btn.textContent = isMuted ? 'Unmute Mic' : 'Mute Mic';
+            btn.classList.toggle('active', isMuted);
+            // Assuming audio is part of videoHandler stream for now or add audioHandler
+            this.videoHandler.stream.getAudioTracks().forEach(t => t.enabled = !isMuted);
+        });
+
+        document.getElementById('toggle-video').addEventListener('click', (e) => {
+            const btn = e.target;
+            const isOff = btn.textContent === 'Stop Video';
+            btn.textContent = isOff ? 'Start Video' : 'Stop Video';
+            btn.classList.toggle('active', isOff);
+            this.videoHandler.toggleVideo(!isOff);
+        });
+
+        document.getElementById('show-reactions').addEventListener('click', () => {
+            const panel = document.getElementById('reaction-panel');
+            panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
+        });
+
+        document.querySelectorAll('.emoji').forEach(emoji => {
+            emoji.addEventListener('click', () => {
+                this.transport.broadcast({
+                    type: 'REACTION',
+                    emoji: emoji.textContent,
+                    id: this.identity.id
+                });
+                document.getElementById('reaction-panel').style.display = 'none';
+                this.showReactionOnUI(emoji.textContent, 'local');
+            });
         });
 
         document.getElementById('toggle-stt').addEventListener('click', () => {
@@ -196,6 +292,26 @@ class PeerVerseApp {
 
         const notesArea = document.getElementById('shared-notes');
         if (notesArea) {
+            const summaryBtn = document.createElement('button');
+            summaryBtn.textContent = 'AI Summary';
+            summaryBtn.style.position = 'absolute';
+            summaryBtn.style.top = '0.5rem';
+            summaryBtn.style.right = '0.5rem';
+            summaryBtn.style.background = '#8b5cf6';
+            summaryBtn.style.border = 'none';
+            summaryBtn.style.color = '#fff';
+            summaryBtn.style.padding = '0.25rem 0.5rem';
+            summaryBtn.style.borderRadius = '4px';
+            summaryBtn.style.cursor = 'pointer';
+
+            notesArea.parentElement.style.position = 'relative';
+            notesArea.parentElement.appendChild(summaryBtn);
+
+            summaryBtn.addEventListener('click', async () => {
+                const summary = await this.onlineAI.generateSummary(notesArea.value);
+                alert(summary);
+            });
+
             notesArea.addEventListener('input', (e) => {
                 this.crdt.updateNotes(e.target.value);
             });
@@ -206,6 +322,10 @@ class PeerVerseApp {
         const stream = await this.videoHandler.getVideoStream();
         const container = document.getElementById('video-grid');
         this.videoHandler.renderToGrid('local', stream, container);
+
+        setInterval(() => {
+            this.transport.getStats();
+        }, 5000);
     }
 }
 

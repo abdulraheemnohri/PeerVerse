@@ -1,101 +1,92 @@
-127.0.0.1 - - [26/Feb/2026 18:58:04] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:04] "GET /ui/dashboard.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:04] "GET /ui/dashboard.css HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:04] "GET /core/identity.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:04] "GET /core/discovery.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:04] "GET /core/transport.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:04] "GET /media/video.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:33] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:33] "GET /ui/dashboard.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:33] "GET /ui/dashboard.css HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:33] "GET /media/video.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:33] "GET /core/discovery.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:33] "GET /ui/profile/profile.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:33] "GET /core/transport.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 18:58:33] "GET /core/identity.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 19:00:59] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 19:00:59] "GET /ui/dashboard.css HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 19:00:59] "GET /ui/dashboard.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 19:00:59] "GET /ui/settings.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 19:00:59] "GET /media/video.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 19:00:59] "GET /core/identity.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 19:00:59] "GET /core/discovery.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 19:00:59] "GET /core/transport.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 19:00:59] "GET /ui/profile/profile.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /ui/dashboard.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /ui/dashboard.css HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /core/identity.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /core/discovery.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /ui/profile/profile.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /media/video.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /core/transport.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /ui/settings.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /data/chat.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /ai/speechToText.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /data/crdt.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /ui/participantPanel.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:38:40] "GET /ui/chatPanel.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /ui/dashboard.css HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /ui/dashboard.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /core/identity.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /core/discovery.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /core/transport.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /media/video.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /ui/profile/profile.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /ui/settings.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /ui/participantPanel.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /ui/chatPanel.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /ai/speechToText.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /data/crdt.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /data/chat.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:40:53] "GET /utils/storage.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:44] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /ui/dashboard.css HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /ui/dashboard.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /core/discovery.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /core/transport.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /core/identity.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /media/video.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /ui/settings.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /ui/profile/profile.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /data/chat.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /data/crdt.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /ui/participantPanel.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /core/governance.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /ai/speechToText.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /ui/chatPanel.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:47:45] "GET /utils/storage.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /ui/dashboard.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /ui/dashboard.css HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /core/identity.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /media/video.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /core/transport.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /core/discovery.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /ui/settings.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /ui/profile/profile.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /data/chat.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /data/crdt.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /ui/chatPanel.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /ai/speechToText.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /ui/participantPanel.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /core/governance.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:51:01] "GET /utils/storage.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:24] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:24] "GET /ui/dashboard.css HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:24] "GET /ui/dashboard.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /core/identity.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /core/discovery.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /core/transport.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /ui/profile/profile.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /ui/settings.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /media/video.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /data/chat.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /ui/chatPanel.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /ui/participantPanel.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /data/crdt.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /ai/speechToText.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /core/governance.js HTTP/1.1" 200 -
-127.0.0.1 - - [26/Feb/2026 20:52:25] "GET /utils/storage.js HTTP/1.1" 200 -
+npm warn exec The following package was not found and will be installed: http-server@14.1.1
+npm warn deprecated whatwg-encoding@2.0.0: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+Starting up http-server, serving .
+
+http-server version: 14.1.1
+
+http-server settings:
+CORS: disabled
+Cache: 3600 seconds
+Connection Timeout: 120 seconds
+Directory Listings: visible
+AutoIndex: visible
+Serve GZIP Files: false
+Serve Brotli Files: false
+Default File Extension: none
+
+Available on:
+  http://127.0.0.1:8080
+  http://192.168.0.2:8080
+Hit CTRL-C to stop the server
+
+[2026-02-27T06:22:42.319Z]  "GET /" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+(node:24337) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2026-02-27T06:22:42.344Z]  "GET /ui/dashboard.css" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.349Z]  "GET /ui/dashboard.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.384Z]  "GET /core/identity.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.392Z]  "GET /core/discovery.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.407Z]  "GET /core/transport.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.408Z]  "GET /media/video.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.411Z]  "GET /media/spatialAudio.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.412Z]  "GET /ui/profile/profile.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.414Z]  "GET /ui/settings.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.415Z]  "GET /data/chat.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.438Z]  "GET /ui/chatPanel.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.439Z]  "GET /ui/participantPanel.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.440Z]  "GET /ui/pluginPanel.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.447Z]  "GET /ui/codeEditor.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.448Z]  "GET /data/whiteboard.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.449Z]  "GET /ui/networkOverlay.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.451Z]  "GET /data/crdt.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.460Z]  "GET /data/files.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.461Z]  "GET /ai/speechToText.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.472Z]  "GET /ai/onlineAI.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.475Z]  "GET /core/governance.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:22:42.480Z]  "GET /utils/storage.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.279Z]  "GET /" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.291Z]  "GET /ui/dashboard.css" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.293Z]  "GET /ui/dashboard.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.299Z]  "GET /core/identity.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.299Z]  "GET /core/discovery.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.312Z]  "GET /core/transport.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.313Z]  "GET /media/video.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.313Z]  "GET /media/spatialAudio.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.313Z]  "GET /ui/profile/profile.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.314Z]  "GET /ui/settings.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.314Z]  "GET /data/chat.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.322Z]  "GET /ui/chatPanel.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.323Z]  "GET /ui/participantPanel.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.324Z]  "GET /ui/pluginPanel.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.324Z]  "GET /ui/codeEditor.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.325Z]  "GET /data/whiteboard.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.325Z]  "GET /ui/networkOverlay.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.329Z]  "GET /data/files.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.330Z]  "GET /data/crdt.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.333Z]  "GET /ai/speechToText.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.334Z]  "GET /ai/onlineAI.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.334Z]  "GET /core/governance.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:23:44.334Z]  "GET /utils/storage.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.395Z]  "GET /" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.407Z]  "GET /ui/dashboard.css" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.407Z]  "GET /ui/dashboard.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.422Z]  "GET /core/identity.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.423Z]  "GET /core/discovery.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.426Z]  "GET /core/transport.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.427Z]  "GET /media/video.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.427Z]  "GET /media/spatialAudio.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.427Z]  "GET /ui/profile/profile.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.428Z]  "GET /ui/settings.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.428Z]  "GET /data/chat.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.433Z]  "GET /ui/chatPanel.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.433Z]  "GET /ui/participantPanel.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.434Z]  "GET /ui/pluginPanel.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.434Z]  "GET /ui/codeEditor.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.435Z]  "GET /data/whiteboard.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.435Z]  "GET /ui/networkOverlay.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.441Z]  "GET /data/crdt.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.441Z]  "GET /data/files.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.442Z]  "GET /ai/speechToText.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.442Z]  "GET /ai/onlineAI.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.442Z]  "GET /core/governance.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"
+[2026-02-27T06:24:42.449Z]  "GET /utils/storage.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36"

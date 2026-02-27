@@ -13,6 +13,12 @@ export class AudioHandler {
         return this.stream;
     }
 
+    toggleAudio(enabled) {
+        if (this.stream) {
+            this.stream.getAudioTracks().forEach(track => track.enabled = enabled);
+        }
+    }
+
     async applyNoiseSuppression() {
         console.log("Applying noise suppression placeholder...");
     }

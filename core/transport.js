@@ -11,6 +11,8 @@ export class Transport {
         this.dataChannels = new Map(); // peerID -> RTCDataChannel
         this.onStream = null;
         this.onData = null;
+        this.onBinaryData = null;
+        this.onStats = null;
     }
 
     async connectToPeer(peerID, isInitiator = false) {
@@ -64,11 +66,34 @@ export class Transport {
         }
     }
 
+    async getStats() {
+        const statsMap = {};
+        for (const [peerID, pc] of this.connections) {
+            const stats = await pc.getStats();
+            stats.forEach(report => {
+                if (report.type === 'inbound-rtp' && report.kind === 'video') {
+                    statsMap[peerID] = {
+                        bytesReceived: report.bytesReceived,
+                        packetsLost: report.packetsLost,
+                        jitter: report.jitter
+                    };
+                }
+            });
+        }
+        if (this.onStats) this.onStats(statsMap);
+        return statsMap;
+    }
+
     setupDataChannel(peerID, channel) {
         this.dataChannels.set(peerID, channel);
         channel.onopen = () => console.log(`Data channel open for peer: ${peerID}`);
         channel.onmessage = (event) => {
-            if (this.onData) this.onData(peerID, JSON.parse(event.data));
+            if (typeof event.data === 'string') {
+                if (this.onData) this.onData(peerID, JSON.parse(event.data));
+            } else {
+                // Binary data (file chunk)
+                if (this.onBinaryData) this.onBinaryData(peerID, event.data);
+            }
         };
         channel.onclose = () => {
             this.dataChannels.delete(peerID);
@@ -90,6 +115,13 @@ export class Transport {
         const channel = this.dataChannels.get(peerID);
         if (channel && channel.readyState === 'open') {
             channel.send(JSON.stringify(data));
+        }
+    }
+
+    sendChunk(peerID, chunk) {
+        const channel = this.dataChannels.get(peerID);
+        if (channel && channel.readyState === 'open') {
+            channel.send(chunk);
         }
     }
 }
