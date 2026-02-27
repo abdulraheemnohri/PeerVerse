@@ -104,11 +104,20 @@ Settings can be adjusted via the UI Settings panel or by modifying `utils/consta
 -   `STUN_SERVERS`: Array of STUN/TURN servers for NAT traversal.
 -   `CHUNK_SIZE`: Size of data chunks for file transfer (default: 16KB).
 
-### Deployment
-Since PeerVerse is serverless, you can deploy the entire project to any static hosting service:
--   **GitHub Pages**
--   **Vercel / Netlify**
--   **IPFS** (Recommended for full decentralization)
+### Deployment to GitHub Pages
+1.  **Push your code** to your GitHub repository (e.g., `https://github.com/abdulraheemnohri/PeerVerse`).
+2.  Navigate to **Settings** > **Pages** in your repository.
+3.  Under **Build and deployment** > **Source**, select `Deploy from a branch`.
+4.  Choose your branch (e.g., `main`) and folder (usually `/ (root)`).
+5.  Click **Save**.
+6.  Your site will be live at `https://<your-username>.github.io/PeerVerse/`.
+
+*Note: Ensure your `index.html` uses relative paths for modules to work correctly on GitHub Pages sub-directories.*
+
+### Alternative Static Hosting
+Since PeerVerse is serverless, it can also be deployed to:
+-   **Vercel / Netlify**: Connect your GitHub repo for auto-deployment.
+-   **IPFS**: Use a service like Fleek for fully decentralized hosting.
 
 ---
 
