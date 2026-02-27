@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeerVerse - Decentralized AV Chat</title>
+    <link rel="stylesheet" href="ui/dashboard.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>PeerVerse</h1>
+            <div id="room-info">
+                Room: <span id="room-id">...</span>
+                <button id="join-room">Join Room</button>
+            </div>
+            <div id="user-info">
+                ID: <span id="user-id">...</span>
+                <button id="edit-profile">Profile</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="video-grid"></div>
+            <aside id="sidebar">
+                <div id="participant-panel" class="panel"></div>
+                <div id="chat-panel" class="panel"></div>
+                <div id="notes-panel" class="panel" style="display:none; flex: 1; padding: 1rem;">
+                    <h3>Shared Notes</h3>
+                    <textarea id="shared-notes" style="width:100%; height:100%; background:transparent; color:#fff; border:none; resize:none;"></textarea>
+                </div>
+            </aside>
+        </main>
+
+        <div id="reaction-panel" style="display:none; position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); background: var(--card-bg); backdrop-filter: blur(12px); border-radius: 20px; padding: 0.5rem 1rem; border: 1px solid var(--glass-border); gap: 1rem; font-size: 1.5rem; cursor: pointer; z-index: 100;">
+            <span class="emoji">👏</span>
+            <span class="emoji">🔥</span>
+            <span class="emoji">❤️</span>
+            <span class="emoji">👍</span>
+            <span class="emoji">🎉</span>
+        </div>
+
+        <footer>
+            <div id="controls">
+                <button id="show-reactions">Reactions</button>
+                <button id="toggle-mic">Mute Mic</button>
+                <button id="toggle-video">Stop Video</button>
+                <button id="share-screen">Share Screen</button>
+                <button id="open-whiteboard">Whiteboard</button>
+                <button id="toggle-stt">Start Captions</button>
+                <button id="settings">Settings</button>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="ui/dashboard.js"></script>
+</body>
+</html>
