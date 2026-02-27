@@ -53,19 +53,50 @@ PeerVerse is built using a layered modular architecture:
 
 ---
 
-## ⚙️ Configuration & Deployment
+## ⚙️ Installation & Setup
 
-### Local Development
-1.  Clone the repository.
-2.  Install dependencies (optional, as the core uses native browser APIs):
+### 🐧 Linux (Ubuntu/Debian)
+1.  **Install Prerequisites:**
     ```bash
-    npm install
+    sudo apt update && sudo apt install git nodejs npm -y
     ```
-3.  Start a local static server:
+2.  **Clone & Run:**
     ```bash
+    git clone https://github.com/abdulraheemnohri/PeerVerse
+    cd PeerVerse
     npx http-server .
     ```
-4.  Open `http://localhost:8080` in multiple browser windows to test P2P logic.
+
+### 🪟 Windows
+1.  **Install Node.js:** Download and install from [nodejs.org](https://nodejs.org/).
+2.  **Clone the Repository:**
+    Open PowerShell or CMD:
+    ```powershell
+    git clone https://github.com/abdulraheemnohri/PeerVerse
+    cd PeerVerse
+    ```
+3.  **Start Server:**
+    ```powershell
+    npx http-server .
+    ```
+
+### 📱 Termux (Android)
+1.  **Setup Environment:**
+    ```bash
+    pkg update && pkg upgrade
+    pkg install git nodejs-lts -y
+    ```
+2.  **Clone & Run:**
+    ```bash
+    git clone https://github.com/abdulraheemnohri/PeerVerse
+    cd PeerVerse
+    npm install -g http-server
+    http-server .
+    ```
+
+### 🌐 Browser Access
+Once the server is running, open your browser and navigate to:
+`http://localhost:8080` (or the IP address provided by the server).
 
 ### Configuration Guide
 Settings can be adjusted via the UI Settings panel or by modifying `utils/constants.js`:
